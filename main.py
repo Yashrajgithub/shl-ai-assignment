@@ -15,6 +15,21 @@ app = FastAPI()
 
 
 # -----------------------------
+# ROOT + HEALTH ENDPOINT
+# -----------------------------
+
+@app.get("/")
+@app.get("/health")
+def home():
+
+    return {
+        "message": "SHL Conversational Assessment Recommender API is running",
+        "docs": "/docs",
+        "health": "/health"
+    }
+
+
+# -----------------------------
 # REQUEST SCHEMA
 # -----------------------------
 
@@ -28,19 +43,6 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
 
     messages: List[Message]
-
-
-# -----------------------------
-# HEALTH ENDPOINT
-# -----------------------------
-
-@app.get("/health")
-
-def health():
-
-    return {
-        "status": "ok"
-    }
 
 
 # -----------------------------
