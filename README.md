@@ -1,1 +1,0 @@
-# shl-ai-assignment
